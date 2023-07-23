@@ -20,7 +20,9 @@ const Header = () => {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to='/about'>About</NavLink>
                             </li>
-                           
+                            <li className="nav-item">
+                                <NavLink className="nav-link" to='/test'>Test</NavLink>
+                            </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" to='/cart'>Cart</NavLink>
                             </li> <p style={{color:'white'}}>{totalItems}</p>

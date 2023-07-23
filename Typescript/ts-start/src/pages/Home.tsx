@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Home = () => {
-  const myFunc = (a: number, b: number) => {
-    console.log("hello");
-    return a * b;
-  };
+  const [counter, setCounter] = useState<number>(0);
 
-  myFunc(3, 5);
-
-  return <div>Home</div>;
+  return (
+    <div>
+      {counter}
+      <button onClick={() => setCounter(counter + 1)}>+</button>
+      <button onClick={() => setCounter(counter - 1)}>-</button>
+      <button onClick={() => setCounter(0)}>reset</button>
+    </div>
+  );
 };
 
 export default Home;

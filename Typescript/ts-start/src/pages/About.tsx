@@ -1,9 +1,35 @@
-import React from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import SingleCard from "../components/SingleCard";
+import { myProps } from "../config/Types";
 
 const About = () => {
-  return (
-    <div>About</div>
-  )
-}
+  const [data, setData] = useState<myProps[]>([]);
 
-export default About
+  useEffect(() => {
+    axios
+      .get("https://dummyjson.com/products")
+      .then((res) => {
+        console.log(res.data);
+        setData(res.data.products);
+      })
+      .catch((err) => console.log(err));
+  });
+
+  let a: "qirmizi" | "goy";
+  a = "s";
+
+  type myType = {
+    role: "admin" | "guest";
+  };
+
+  return (
+    <>
+      {data.map((item: myProps, index: number) => {
+        return <SingleCard product={item} />;
+      })}
+    </>
+  );
+};
+
+export default About;
